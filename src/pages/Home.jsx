@@ -1,6 +1,9 @@
 import BgRemovalSteps from "../components/BgRemovalSteps";
 import BgSlider from "../components/BgSlider";
 import Header from "../components/Header";
+import Pricing from "../components/Pricing";
+import Testimonials from "../components/Testimonials";
+import TryNow from "../components/TryNow";
 
 const Home = () => {
     return (
@@ -16,10 +19,13 @@ const Home = () => {
             <BgSlider />
 
             {/* Bu credits plan section */}
+            <Pricing />
 
             {/* User testimonials section */}
+            <Testimonials />
 
             {/* Try now section */}
+            <TryNow />
 
 
         </div>

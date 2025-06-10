@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import {assets} from "../assets/assets.js";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SignedIn, SignedOut, useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { AppContext } from "../context/AppContext.jsx";
 
@@ -10,6 +10,7 @@ const MenuBar = () => {
     const {openSignIn, openSignUp} = useClerk();
     const {user} = useUser();
     const {credit} = useContext(AppContext)
+    const navigate = useNavigate();
 
     const openRegister = () => {
         setMenuOpen(false); 
@@ -43,7 +44,7 @@ const MenuBar = () => {
             </SignedOut>
             <SignedIn>
                 <div className="flex items-center gap-2 sm:gap-3">
-                    <button className="flex items-center gap-2 bg-blue-100 px-4 sm:px-5 py-1.5 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer">
+                    <button onClick={() => navigate("/pricing")} className="flex items-center gap-2 bg-blue-100 px-4 sm:px-5 py-1.5 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer">
                         <img src={assets.dollar} alt="credits" height={24} width={24}/>
                         <p className="text-xs sm:text-sm font-medium text-gray-600">
                             Credits: {credit}
@@ -80,7 +81,7 @@ const MenuBar = () => {
                 </SignedOut>
                 <SignedIn>
                     <div className="flex items-center gap-2 sm:gap-3">
-                        <button className="flex items-center gap-2 bg-blue-100 px-4 py-1 5 sm:py-2 5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer">
+                        <button onClick={() => navigate("/pricing")} className="flex items-center gap-2 bg-blue-100 px-4 py-1 5 sm:py-2 5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer">
                             <img src={assets.dollar} alt="credits" height={24} width={24}/>
                             <p className="text-xs sm:text-sm font-medium text-gray-600">
                                 Credits: {credit}

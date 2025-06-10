@@ -4,9 +4,7 @@ import { useContext } from "react";
 import { AppContext } from "../context/AppContext.jsx";
 import { placeOrder } from "../service/OrderService.js";
 
-
-
-const Pricing = () => {
+const BuyCredits = () => {
     const {isSignedIn, getToken} = useAuth();
     const {openSignIn} = useClerk();
     const {loadUserCredits, backendUrl} = useContext(AppContext);
@@ -55,7 +53,7 @@ const Pricing = () => {
                                 <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
                                 <div className="mt-4 text-center">
                                     <span className="text-4xl text-violet-400 font-bold">
-                                        {plan.price} ₺
+                                        ${plan.price}
                                     </span>
                                 </div>
                             </div>
@@ -89,4 +87,4 @@ const Pricing = () => {
     )
 } 
 
-export default Pricing;
+export default BuyCredits;
